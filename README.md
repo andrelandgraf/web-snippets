@@ -1,2 +1,2 @@
 # web-snippets
-Little demos and snippets I created over time and shared on social media. 
+Small demos and snippets that I created over time and shared on social media. 

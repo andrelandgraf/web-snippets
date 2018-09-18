@@ -9,97 +9,113 @@
                 height: 100%;
                 position: relative;
             }
-            .text {
+            .animation {
+                animation: hello 5s 0s 1;
+            }
+            .box {
                 position: absolute;
-                left: 30%;
-                right: 30%;
+                display: grid;
+                grid-template-rows: 50% 50%;
+                grid-template-columns: 20% 20% 20% 20% 20%;
+                left: 40%;
+                right: 40%;
                 top: 40%;
                 bottom: 40%;
-                width: 40%;
+                width: 20%;
                 height: 20%;
-                animation: hello 40s 0s infinite;
+                border: 2px solid #272727;;
+                border-radius: 20px;
+                /* Credits for the beautiful Instagram gradient & the nice icon shadow to Thomas Rye: https://codepen.io/thomasrye/pen/VaRoYv */
+                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+                box-shadow: 0px 3px 10px rgba(0,0,0,.25);
             }
-            .font {
+            .text {
+                display: inline;
                 text-align: center;
                 font-weight: 900;
-                color: black;
+                color: white;
                 font-size: 100px;
                 font-family: 'Courier New', Courier, monospace;
             }
+            .ahaaa {
+                box-shadow: 5px 10px 60px #ffee00;
+            }
+            .funky {
+                font-size: 110px;
+                color:#fdf497; 
+                transform: rotate(20deg);
+            }
             @keyframes hello {
                 0% {
-                    color: red;
-                    left: 0;
-                }
-                5% {
-                    color: yellow;
-                    left: 30%;
-                }
-                10% {
-                    color: blue;
-                    top: 0;
-                }
-                15% {
-                    color: green;
-                    top: 40%;
-                }
-                20% {
-                    color: purple;
-                    left: 30%;
-                    right: 30%;
+                    left: 40%;
+                    right: 40%;
                     top: 40%;
                     bottom: 40%;
                 }
-                30% {
-                    color: peru;
-                    top: 0;
-                    left: 0;
+                20% {
+                    left: 40%;
+                    right: 40%;
+                    top: 20%;
+                    bottom: 60%;
                 }
                 40% {
-                    color: olive;
-                    bottom: 0;
-                    right: 0;
-                }
-                50% {
-                    color: blueviolet;
-                    left: 30%;
-                    right: 30%;
+                    left: 20%;
+                    right: 60%;
                     top: 40%;
                     bottom: 40%;
                 }
                 60% {
-                   color: aqua;
-                   top: 0;
-                   right: 0;
-                }
-                70% {
-                    color:yellowgreen;
-                    left: 30%;
-                    right: 30%;
-                    top: 40%;
-                    bottom: 40%;
+                    left: 40%;
+                    right: 40%;
+                    top: 60%;
+                    bottom: 20%;
                 }
                 80% {
-                    color: black;
-                    bottom: 0;
-                    left: 0;
-                }
-                90% {
-                    color:yellowgreen;
-                    left: 30%;
-                    right: 30%;
+                    left: 60%;
+                    right: 20%;
                     top: 40%;
                     bottom: 40%;
                 }
                 100% {
-                    visibility: hidden;
+                    left: 40%;
+                    right: 40%;
+                    top: 40%;
+                    bottom: 40%;
                 }
             }
         </style>
     </head>
     <body>
-        <h1 class="text font animation">
-            Hello World
-        </h1>
+        <div class="animation box">HelloWorld</div>
     </body>
+    <script>
+        const box = document.querySelector(".box");
+        const text = box.textContent;
+        const array = text.split("");
+        let innerHTML = "";
+        array.forEach(value => {
+            innerHTML = innerHTML + `<div class='text'>${value}</div>`;
+        });
+        box.innerHTML = innerHTML;
+
+        function dancingText(i){
+            console.log(i);
+            const textBoxes = document.querySelectorAll(".text");
+            const length = textBoxes.length;
+            if(i >= length) {
+                textBoxes[i-1].classList.toggle('funky');
+                box.classList.toggle('ahaaa');
+                return;
+            }
+            textBoxes[i].classList.toggle('funky');
+            if(i > 0){
+                textBoxes[i-1].classList.toggle('funky');
+            } else {
+                box.classList.toggle('ahaaa');
+            }
+            setTimeout(() => {dancingText(i+1)}, 150);
+        }
+
+        setTimeout(() => {dancingText(0)}, 5000);
+    </script>
 </html>

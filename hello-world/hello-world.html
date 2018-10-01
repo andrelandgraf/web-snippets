@@ -2,54 +2,58 @@
 
 <head>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;   
+}
 
-        body {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-        }
+body {
+  height: 500px;
+  background-color: #272727;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+        
+.box {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 20px;
+  width: 400px;
+  height: 200px;
+  border: 2px solid white;
+  border-radius: 20px;
+  /* Credits for the beautiful Instagram gradient & the nice icon     shadow to Thomas Rye: https://codepen.io/thomasrye/pen/VaRoYv */
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+        
+.text {
+  display: inline;
+  text-align: center;
+  font-weight: 900;
+  color: white;
+  font-size: 100px;
+  font-family: "Courier New", Courier, monospace;
+}
+        
+.bright-shadow {
+  box-shadow: 5px 10px 60px #ffee00;
+}
+        
+.funky {
+  font-size: 110px;
+  color: #fdf497;
+  transform: rotate(20deg);
+}
 
-        .box {
-            position: absolute;
-            display: grid;
-            grid-template-rows: 50% 50%;
-            grid-template-columns: 20% 20% 20% 20% 20%;
-            left: 25%;
-            right: 25%;
-            top: 25%;
-            bottom: 25%;
-            width: 50%;
-            padding: 10px;
-            height: 50%;
-            border: 3px solid white;
-            border-radius: 20px;
-            /* Credits for the beautiful Instagram gradient & the nice icon shadow to Thomas Rye: https://codepen.io/thomasrye/pen/VaRoYv */
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            box-shadow: 0px 3px 10px rgba(0, 0, 0, .25);
-        }
-
-        .text {
-            display: inline;
-            text-align: center;
-            font-weight: 900;
-            color: white;
-            font-size: 300px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        .bright-shadow {
-            box-shadow: 6px 18px 40px #ffee00;
-        }
-
-        .funky {
-            font-size: 320px;
-            color: #fdf497;
-            transform: rotate(20deg);
-        }
     </style>
 </head>
 
